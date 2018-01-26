@@ -1,0 +1,352 @@
+$jw-basic-background: rgb(244,244,244);
+$jw-basic-text: rgb(34,34,34);
+$jw-basic-opacity: rgba(244,244,244,0.7);
+$jw-basic-text-opacity: rgba(34,34,34,0.7);
+$jw-basic-hover: rgb(255,255,255);
+$jw-basic-text-hover: rgb(0,0,0);
+$jw-basic-placeholder: rgba(34,34,34,0.8);
+
+$jw-inverted-background: rgb(34,34,34);
+$jw-inverted-text: rgb(244,244,244);
+$jw-inverted-opacity: rgba(34,34,34,0.7);
+$jw-inverted-text-opacity: rgba(244,244,244,0.7);
+$jw-inverted-hover: rgb(0,0,0);
+$jw-inverted-text-hover: rgb(255,255,255);
+$jw-inverted-placeholder: rgba(244,244,244,0.8);
+
+$jw-ext-background: rgb(29, 38, 145);
+$jw-ext-text: rgb(244,244,244);
+$jw-ext-opacity: rgba(29, 38, 145,0.7);
+$jw-ext-text-opacity: rgba(244,244,244,0.7);
+$jw-ext-hover: rgb(255,255,255);
+$jw-ext-text-hover: rgb(0,0,0);
+$jw-ext-placeholder: rgba(34,34,34,0.8);
+
+$jw-int-background: rgb(244,244,244);
+$jw-int-text: rgb(34,34,34);
+$jw-int-opacity: rgba(244,244,244,0.7);
+$jw-int-text-opacity: rgba(34,34,34,0.7);
+$jw-int-hover: rgb(255,255,255);
+$jw-int-text-hover: rgb(0,0,0);
+$jw-int-placeholder: rgba(34,34,34,0.8);
+
+$jw-news-background: rgb(44,62,80);
+$jw-news-text: rgb(244,244,244);
+$jw-news-opacity: rgba(44,62,80,0.7);
+$jw-news-text-opacity: rgba(244,244,244,0.7);
+$jw-news-hover: rgb(255,255,255);
+$jw-news-text-hover: rgb(0,0,0);
+$jw-news-placeholder: rgba(244,244,244,0.8);
+
+$jw-events-background: rgb(244,244,244);
+$jw-events-text: rgb(34,34,34);
+$jw-events-opacity: rgba(244,244,244,0.7);
+$jw-events-text-opacity: rgba(34,34,34,0.7);
+$jw-events-hover: rgb(255,255,255);
+$jw-events-text-hover: rgb(0,0,0);
+$jw-events-placeholder: rgba(34,34,34,0.8);
+
+$jw-market-background: rgb(107, 142, 35);
+$jw-market-text: rgb(244,244,244);
+$jw-market-opacity: rgba(107, 142, 35,0.7);
+$jw-market-text-opacity: rgba(244,244,244,0.7);
+$jw-market-hover: darken(rgb(107, 142, 35),20%);
+$jw-market-text-hover: lighten(rgb(244,244,244),20%);
+$jw-market-placeholder: rgba(244,244,244,0.8);
+
+@mixin theme($background,$text){
+  background-color: $background !important;
+  color: $text !important;
+}
+@mixin text($text){
+  color: $text !important;
+}
+@mixin opacity($background,$text){
+  background-color: $background !important;
+  color: $text !important;
+}
+@mixin textarea($border){
+  border-bottom: 1px solid $border !important;
+  box-shadow: 0 1px 0 0 $border !important;
+}
+body{
+  padding-right: 300px;
+}
+@media only screen and (max-width : 992px) {
+      body{
+        padding-right: 0;
+      }
+}
+.jw-brand-logo{
+  font-weight: lighter;
+  font-size: 32px;
+  line-height: 32px;
+  margin: 0;
+}
+.jw-brand-bar{
+  margin: 0;
+  padding: 10px;
+}
+.jw-brand-img{
+  height: 32px;
+  width: 32px;
+  vertical-align: middle;
+}
+.jw-brand-img-large{
+  padding-right: 10px;
+}
+.jw-w{
+  width: 100%;
+}
+.jw-sidenav{
+  height: 100hv;
+}
+.jw-sidenav li{
+  padding-left: 20px;
+  font-size: 25px;
+}
+.jw-full-width{
+  width:100%;
+}
+.loader{
+  height: 100hv;
+  background-color: black;
+}
+.jw-basic{
+  @include theme($jw-basic-background,$jw-basic-text);
+}
+.jw-basic-text{
+  @include text($jw-basic-text);
+}
+.jw-basic-opacity{
+  @include opacity($jw-basic-opacity,$jw-basic-text);
+}
+.jw-basic-hover:hover{
+  @include theme($jw-basic-hover,$jw-basic-text-hover);
+}
+.jw-basic a{
+  @include text($jw-basic-text);
+}
+input.jw-basic::-moz-placeholder{
+  @include text($jw-basic-placeholder);
+}
+input.jw-basic:-moz-placeholder{
+  @include text($jw-basic-placeholder);
+}
+input.jw-basic:-ms-input-placeholder{
+  @include text($jw-basic-placeholder);
+}
+input.jw-basic::-webkit-input-placeholder{
+  @include text($jw-basic-placeholder);
+}
+.jw-basic-textfield input{
+  @include textarea($jw-basic-text)
+}
+.jw-basic-text input:focus{
+  @include textarea($jw-basic-text-hover);
+}
+
+
+.jw-inverted{
+  @include theme($jw-inverted-background,$jw-inverted-text);
+}
+.jw-inverted-text{
+  @include text($jw-inverted-text);
+}
+.jw-inverted-opacity{
+  @include opacity($jw-inverted-opacity,$jw-inverted-text);
+}
+.jw-inverted-hover:hover{
+  @include theme($jw-inverted-hover,$jw-inverted-text-hover);
+}
+.jw-inverted a{
+  @include text($jw-inverted-text);
+}
+input.jw-inverted::-moz-placeholder{
+  @include text($jw-inverted-placeholder);
+}
+input.jw-inverted:-moz-placeholder{
+  @include text($jw-inverted-placeholder);
+}
+input.jw-inverted:-ms-input-placeholder{
+  @include text($jw-inverted-placeholder);
+}
+input.jw-inverted::-webkit-input-placeholder{
+  @include text($jw-inverted-placeholder);
+}
+.jw-inverted-textfield input{
+  @include textarea($jw-inverted-text)
+}
+.jw-inverted-text input:focus{
+  @include textarea($jw-inverted-text-hover);
+}
+
+.jw-int{
+  @include theme($jw-int-background,$jw-int-text);
+}
+.jw-int-text{
+  @include text($jw-int-text);
+}
+.jw-int-opacity{
+  @include opacity($jw-int-opacity,$jw-int-text);
+}
+.jw-int-hover:hover{
+  @include theme($jw-int-hover,$jw-int-text-hover);
+}
+.jw-int a{
+  @include text($jw-int-text);
+}
+input.jw-int::-moz-placeholder{
+  @include text($jw-int-placeholder);
+}
+input.jw-int:-moz-placeholder{
+  @include text($jw-int-placeholder);
+}
+input.jw-int:-ms-input-placeholder{
+  @include text($jw-int-placeholder);
+}
+input.jw-int::-webkit-input-placeholder{
+  @include text($jw-int-placeholder);
+}
+.jw-int-textfield input{
+  @include textarea($jw-int-text)
+}
+.jw-int-text input:focus{
+  @include textarea($jw-int-text-hover);
+}
+
+.jw-ext{
+  @include theme($jw-ext-background,$jw-ext-text);
+}
+.jw-ext-text{
+  @include text($jw-ext-text);
+}
+.jw-ext-opacity{
+  @include opacity($jw-ext-opacity,$jw-ext-text);
+}
+.jw-ext-hover:hover{
+  @include theme($jw-ext-hover,$jw-ext-text-hover);
+}
+.jw-ext a{
+  @include text($jw-ext-text);
+}
+input.jw-ext::-moz-placeholder{
+  @include text($jw-ext-placeholder);
+}
+input.jw-ext:-moz-placeholder{
+  @include text($jw-ext-placeholder);
+}
+input.jw-ext:-ms-input-placeholder{
+  @include text($jw-ext-placeholder);
+}
+input.jw-ext::-webkit-input-placeholder{
+  @include text($jw-ext-placeholder);
+}
+.jw-ext-textfield input{
+  @include textarea($jw-ext-text)
+}
+.jw-ext-text input:focus{
+  @include textarea($jw-ext-text-hover);
+}
+
+.jw-news{
+  @include theme($jw-news-background,$jw-news-text);
+}
+.jw-news-text{
+  @include text($jw-news-text);
+}
+.jw-news-opacity{
+  @include opacity($jw-news-opacity,$jw-news-text);
+}
+.jw-news-hover:hover{
+  @include theme($jw-news-hover,$jw-news-text-hover);
+}
+.jw-news a{
+  @include text($jw-news-text);
+}
+input.jw-news::-moz-placeholder{
+  @include text($jw-news-placeholder);
+}
+input.jw-news:-moz-placeholder{
+  @include text($jw-news-placeholder);
+}
+input.jw-news:-ms-input-placeholder{
+  @include text($jw-news-placeholder);
+}
+input.jw-news::-webkit-input-placeholder{
+  @include text($jw-news-placeholder);
+}
+.jw-news-textfield input{
+  @include textarea($jw-news-text)
+}
+.jw-news-text input:focus{
+  @include textarea($jw-news-text-hover);
+}
+
+.jw-events{
+  @include theme($jw-events-background,$jw-events-text);
+}
+.jw-events-text{
+  @include text($jw-events-text);
+}
+.jw-events-opacity{
+  @include opacity($jw-events-opacity,$jw-events-text);
+}
+.jw-events-hover:hover{
+  @include theme($jw-events-hover,$jw-events-text-hover);
+}
+.jw-events a{
+  @include text($jw-events-text);
+}
+input.jw-events::-moz-placeholder{
+  @include text($jw-events-placeholder);
+}
+input.jw-events:-moz-placeholder{
+  @include text($jw-events-placeholder);
+}
+input.jw-events:-ms-input-placeholder{
+  @include text($jw-events-placeholder);
+}
+input.jw-events::-webkit-input-placeholder{
+  @include text($jw-events-placeholder);
+}
+.jw-events-textfield input{
+  @include textarea($jw-events-text)
+}
+.jw-events-text input:focus{
+  @include textarea($jw-events-text-hover);
+}
+
+.jw-market{
+  @include theme($jw-market-background,$jw-market-text);
+}
+.jw-market-text{
+  @include text($jw-market-text);
+}
+.jw-market-opacity{
+  @include opacity($jw-market-opacity,$jw-market-text);
+}
+.jw-market-hover:hover{
+  @include theme($jw-market-hover,$jw-market-text-hover);
+}
+.jw-market a{
+  @include text($jw-market-text);
+}
+input.jw-market::-moz-placeholder{
+  @include text($jw-market-placeholder);
+}
+input.jw-market:-moz-placeholder{
+  @include text($jw-market-placeholder);
+}
+input.jw-market:-ms-input-placeholder{
+  @include text($jw-market-placeholder);
+}
+input.jw-market::-webkit-input-placeholder{
+  @include text($jw-market-placeholder);
+}
+.jw-market-textfield input{
+  @include textarea($jw-market-text)
+}
+.jw-market-text input:focus{
+  @include textarea($jw-market-text-hover);
+}
