@@ -72,6 +72,9 @@ $jw-market-placeholder: rgba(244,244,244,0.8);
 body{
   padding-right: 300px;
 }
+td{
+    vertical-align: top;
+}
 @media only screen and (max-width : 992px) {
       body{
         padding-right: 0;

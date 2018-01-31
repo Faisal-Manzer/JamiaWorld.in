@@ -8,8 +8,15 @@ Element.prototype.add = function(c) {
     c = "";
   var arr = c.split(" ");
   if (c !== "")
-    for (var i = 0; i < arr.length; i++)
-      this.classList.add(arr[i]);
+    for (var i = 0; i < arr.length; i++) {
+      if ((arr[i].search(/--/)) === -1)
+        this.classList.add(arr[i]);
+      else {
+        console.log(arr[i].slice(2));
+        this.classList.remove(arr[i].slice(2));
+      }
+
+    }
 }
 Element.prototype.append = function(c) {
   this.appendChild(c);
@@ -29,7 +36,7 @@ String.prototype.load = function(s, f) {
     }
   }
 };
-var root = "http://localhost:8888/"
+var root = "http://" + location.host;
 var app = {
   isLoading: true,
   theme: "jw-theme",
@@ -40,6 +47,7 @@ var app = {
   collectionCount: 0,
   tabCount: 0,
   collapsibleCount: 0,
+  tableCount: 0,
   main: $("main .page-role"),
   page: ".page-role",
   sideNav: {
@@ -81,8 +89,16 @@ app.prevent = function() {
   }
 }
 app.add = function(obj) {
-  for (var i = 0; i < obj.length; i++)
+  for (var i = 0; i < obj.length; i++) {
+    check(obj.parent, function() {
+      console.log(obj.parent);
+      check(obj[i].parent, false, function() {
+        obj[i].parent = obj.parent;
+        console.log(obj[i].parent);
+      });
+    });
     app.add(obj[i]);
+  }
   switch (obj.type) {
     case "card":
       app.createCard(obj);
@@ -101,6 +117,9 @@ app.add = function(obj) {
       break;
     case "collapsible":
       app.createCollapsible(obj);
+      break;
+    case "table":
+      app.createTable(obj);
       break;
     default:
   }
@@ -170,11 +189,14 @@ app.createCard = function(o) {
   });
   var card = create("card " + theme);
   card.id = def(app.cardCount, o.id, "card-");
+  check(o.eclass, function() {
+    card.add(o.eclass);
+  });
   app.cardCount++;
   check(o.img, function() {
     var imageCont = create("card-image");
     var image = create("img", "");
-    image.src = o.img;
+    image.src = root + "/images/" + o.img;
     var title = create("span", "card-title jw-basic-opacity jw-w");
     title.innerHTML = o.title;
     imageCont.append(image);
@@ -263,7 +285,7 @@ app.createPara = function(o) {
   app.paraCount++;
   var title = create("span", "");
   if (typeof(o.title) === typeof(" "))
-    title.innerHTML = o.title;
+    title.innerHTML = '<b>' + o.title + '</b>';
   check(o.title.cont, function() {
     title.innerHTML = o.title.cont;
   });
@@ -304,7 +326,7 @@ app.createCollection = function(o) {
       check(io.img, function() {
         item.add("avatar");
         var img = create("img", "circle");
-        img.src = io.img;
+        img.src = root + "/images/" + io.img;
         item.append(img);
       });
       //console.log(io.title);
@@ -373,19 +395,24 @@ app.createCollapsible = function(o) {
     var contId = id + "-cont-" + i;
     cont.id = contId;
     cont.innerHTML = o.items[i].cont;
-    check(o.saru, function() {
-      o.saru.parent = "#" + contId;
-      app.add(o.saru);
+    child[i] = '';
+    check(o.items[i].saru, function() {
+      o.items[i].saru.parent = "#" + contId;
+      child[i] = o.items[i].saru;
     });
     li.append(title);
     li.append(cont);
     //console.log(li);
     c.append(li);
   }
+  console.log(o.parent);
   var parent = $(def("", o.parent, app.page + " "));
   parent.append(c);
   console.log(c);
   var instance = M.Collapsible.init($("#" + id), o.options);
+  for (var i = 0; i < child.length; i++) {
+    app.add(child[i]);
+  }
 }
 app.createTabs = function(o) {
   var tabHolder = create("col s12");
@@ -399,8 +426,9 @@ app.createTabs = function(o) {
   for (var i = 0; i < o.items.length; i++) {
     var title = create("li", "tab col s3");
     var anc = create("a", "");
-    check(o.items[i].active, function() {
-      anc.add(o.items[i].active);
+    check(o.active, function() {
+      if (o.active === i)
+        anc.add("active");
     });
     anc.href = "#" + id + "-cont-" + i;
     anc.innerHTML = o.items[i].title;
@@ -441,23 +469,23 @@ app.createTable = function(o) {
   check(o.eclass, function() {
     c.add(o.eclass);
   });
-  check(o.header,function(){
-    var header = create("thead","");
-    var tr = create("tr","");
+  check(o.header, function() {
+    var header = create("thead", "");
+    var tr = create("tr", "");
     for (var i = 0; i < o.header.length; i++) {
-      var th = create("th","");
+      var th = create("th", "");
       th.innerHTML = o.header[i];
       th.append(td);
     }
     header.append(th);
     c.append(header);
   });
-  check(o.items,function(){
-    var body = create("tbody","");
+  check(o.items, function() {
+    var body = create("tbody", "");
     for (var i = 0; i < o.items.length; i++) {
-      var tr = create("tr","");
-      for (var j = 0; j < o.item[i].length; j++) {
-        var td = create("td","");
+      var tr = create("tr", "");
+      for (var j = 0; j < o.items[i].length; j++) {
+        var td = create("td", "");
         td.innerHTML = o.items[i][j];
         tr.append(td);
       }
@@ -466,13 +494,14 @@ app.createTable = function(o) {
     c.append(body);
   });
   var parent = $(def("", o.parent, app.page + " "));
+  console.log(o.parent);
   parent.append(c);
 }
 app.navigate = function(u) {
   history.pushState("THEONE", "THETWO", u);
 }
 app.searchInit = function() {
-  var turl = root + "app/courses.php";
+  var turl = root + "/data/courses_search.php";
   turl.load("", function(e) {
     var elem = document.querySelector('#mainSearch');
     var options = {
@@ -485,8 +514,7 @@ app.searchInit = function() {
   });
 }
 app.loadData = function() {
-  var tpath = "http://localhost:8888/app/data.php";
-  //console.log(location.pathname);
+  var tpath = root + "/data/main.php";
   tpath.load("path=" + location.pathname, function(e) {
     app.add(e);
     $(".loader").add("hide");
@@ -496,4 +524,116 @@ window.onload = function() {
   app.init();
   app.searchInit();
   app.loadData();
+  $(".loader").add("hide");
+
+
+  var s = [{
+      type: 'para',
+      title: '<h4>B.Sc. Maths</h4>',
+      cont: ''
+    },
+    {
+      type: 'collapsible',
+      options: {
+        accordion: false
+      },
+      items: [{
+          title: 'Basic Info',
+          cont: '',
+
+          saru: [{
+              type: 'table',
+              items: [
+                [
+                  '<b>Duration</b>',
+                  '3 years'
+                ],
+                [
+                  '<b>Total Seat</b>',
+                  '50'
+                ],
+                [
+                  '<b>Resevation</b>',
+                  'Muslim (50) <br> OBC Muslim (30) <br> Muslim Women (34)'
+                ]
+              ]
+            },
+            {
+              type: 'para',
+              title: '',
+              cont: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, magnam.'
+            },
+            {
+              type: 'para',
+              title: 'Address',
+              cont: '<div id="add-maps-try" style="height: 200px; width: 100%; position: relative; overflow: hidden;"></div> <script>function initMap(){var markIt={lat: 28.560750, lng: 77.278400}; var map=new google.maps.Map(document.getElementById("add-maps-try"),{zoom: 17, center: markIt}); var marker=new google.maps.Marker({position: markIt, map: map});}</script> <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAa9zBvf8Afp-ObmQ9Yz1WylnDqrGXhbRo&callback=initMap"></script> </div>'
+            }
+          ]
+        },
+        {
+          title: 'Examination',
+          cont: '',
+          saru: [{
+              type: 'table',
+              items: [
+                [
+                  '<b>Exam:</b>',
+                  'Trough JEE Mains'
+                ],
+                [
+                  '<b>Opening Date</b>',
+                  '29 Dec 2017'
+                ],
+                [
+                  '<b>Closing Date</b>',
+                  '3 March 2018'
+                ],
+                [
+                  '<b>Form Date</b>',
+                  '&#x20b9; 300'
+                ],
+                [
+                  '<b>Examination Pattern</b>',
+                  '<b>Objective</b><br>100 Marks<br>100 Questions',
+                ],
+                [
+                  '<b>Level</b>',
+                  'Boad Level',
+                ]
+              ]
+            },
+            {
+              type: 'para',
+              title: '',
+              cont: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, magnam.'
+            }
+          ]
+        },
+        {
+          title: 'Study Material',
+          cont: '',
+          saru: [{
+            type: 'table',
+            items: [
+              [
+                '<b>Sllabus</b>',
+                '<a href="#">Download</a>'
+              ],
+              [
+                '<b>Previous Years</b>',
+                '<a href="#">Download</a>'
+              ],
+              [
+                '<b>Sample Paper</b>',
+                '<a href="#">Download</a>'
+              ]
+            ]
+          }]
+        }
+      ]
+    }
+  ];
+  //app.add(s);
+
+
 }

@@ -2,8 +2,8 @@ ErrorDocument 404 /404.php
 
 ErrorDocument 403 /403.php
 
-######Options +FollowSymLinks
-#############php_flag display_error Off
+RewriteEngine On
+RewriteRule ^([a-z\-A-Z\/]*)$ /index.php?s=$1
 
 AddType text/cache-manifest appcache
 
