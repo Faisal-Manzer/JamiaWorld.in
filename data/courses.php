@@ -29,7 +29,6 @@ class course extends sql
     $this->setData();
   }
   function setData(){
-
     $this->json = json_encode($this->arr);
   }
 }

@@ -12,7 +12,7 @@ Element.prototype.add = function(c) {
       if ((arr[i].search(/--/)) === -1)
         this.classList.add(arr[i]);
       else {
-        console.log(arr[i].slice(2));
+        //console.log(arr[i].slice(2));
         this.classList.remove(arr[i].slice(2));
       }
 
