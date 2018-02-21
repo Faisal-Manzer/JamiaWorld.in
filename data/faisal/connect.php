@@ -1,20 +1,4 @@
 <?php
-/*
-$user = 'root';
-$password = 'root';
-$db = 'inventory';
-$host = 'localhost';
-$port = 8889;
-
-$link = mysql_connect(
-   "$host:$port",
-   $user,
-   $password
-);
-*/
-/**
- *
- */
 class sql
 {
   private $user;
@@ -45,14 +29,15 @@ class sql
       $this->is_conn = 1;
     }
   }
-  function execute($sql)
+  protected function execute($sql)
   {
       $this->query = $sql;
       $this->result = mysqli_query($this->conn, $sql);
       $this->insert_id = $this->conn->insert_id;
       $this->err = mysqli_error($this->conn);
+      echo $this->err;
   }
-  function select($sql){
+  protected function select($sql){
       $this->execute($sql);
       echo $this->err;
       if ($this->result->num_rows > 0) {
@@ -61,7 +46,7 @@ class sql
           }
       }
   }
-  function insert($rows, $table){
+  protected function insert($rows, $table){
       $row = "";
       $values = "";
       foreach ($rows as $name => $value){
@@ -78,18 +63,3 @@ class sql
 
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <?php
-echo "Ok";
-
-   ?>
-</body>
-</html>
