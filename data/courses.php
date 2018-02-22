@@ -27,6 +27,7 @@ class course extends sql
 
     );
     */
+    $this->select("SELECT * FROM courses WHERE ")
       $this->arr = array(
           array(
               'type' => 'para',
@@ -65,7 +66,7 @@ class course extends sql
                           array(
                               'type' => 'para',
                               'title' => '',
-                              'cont' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, magnam.'
+                              'cont' => implode(",", $this->r_url[0])
                           ),
                           array(
                               'type' => 'para',

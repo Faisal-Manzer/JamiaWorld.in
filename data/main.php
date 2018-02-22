@@ -10,8 +10,8 @@ if(isset($_POST['path'])){
   preg_match_all('/[a-z\-A-Z.]+/', $path, $matches);
   if(isset($matches[0][0])){
     switch ($matches[0][0]) {
-      case 'courses':
-        include 'courses.php';
+      case 'preparation':
+        include 'preparation.php';
         $course = new course($path);
         echo $course->json;
         break;

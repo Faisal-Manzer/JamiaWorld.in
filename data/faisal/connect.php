@@ -38,6 +38,10 @@ class sql
       echo $this->err;
   }
   protected function select($sql){
+      $this->result_arr = array();
+      $this->err = "";
+      $this->query = $sql;
+      $this->result = "";
       $this->execute($sql);
       echo $this->err;
       if ($this->result->num_rows > 0) {
@@ -46,20 +50,34 @@ class sql
           }
       }
   }
-  protected function insert($rows, $table){
+  protected function update($rows, $table, $id){
       $row = "";
-      $values = "";
+      //$values = "";
       foreach ($rows as $name => $value){
-          $row .= $name.", ";
-          $values .= "'".$value."', ";
+          $row .= $name."='".$value."', ";
+          //$values .= "'".$value."', ";
       }
       $row = substr($row, 0, -2);
-      $values = substr($values, 0, -2);
+      //$values = substr($values, 0, -2);
 
-      $sql = "INSERT INTO ".$table." (".$row.") VALUE (".$values.");";
+      $sql = "UPDATE ".$table." SET ".$row." WHERE id='".$id."'";
       $this->execute($sql);
 
   }
+    protected function insert($rows, $table){
+        $row = "";
+        $values = "";
+        foreach ($rows as $name => $value){
+            $row .= $name.", ";
+            $values .= "'".$value."', ";
+        }
+        $row = substr($row, 0, -2);
+        $values = substr($values, 0, -2);
+
+        $sql = "INSERT INTO ".$table." (".$row.") VALUE (".$values.");";
+        $this->execute($sql);
+
+    }
 
 }
 ?>
