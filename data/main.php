@@ -16,19 +16,12 @@ if(isset($_POST['path'])){
         echo $course->json;
         break;
       case 'events':
-        echo "events";
-        break;
       case 'market':
-        echo "market";
-        break;
       case 'news':
-        echo "news";
-        break;
       case 'contact':
-        echo "contact";
-        break;
       case "about":
-        echo "about";
+        $tr = array('type'=>'card','eclass'=>'red darken-4 jw-inverted-text --jw-basic','title'=>'Sorry :(','cont'=>'We are working in this area');
+        echo json_encode($tr);
         break;
       case 'index.php':
       case 'index.html':

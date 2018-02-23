@@ -73,7 +73,7 @@ app.init = function() {
   setTimeout(function() {
     M.toast(app.askLogin);
   }, 3000);
-  app.prevent();
+  //app.prevent();
 };
 app.prevent = function() {
   var links = document.getElementsByTagName("a");
@@ -508,6 +508,8 @@ app.searchInit = function() {
       data: e,
       onAutocomplete: function() {
         console.log(elem.value);
+        var newUrl = elem.value.replace(/\s/g, "/");
+        window.location = "http://"+location.host+"/preparation/"+newUrl;
       }
     };
     var instance = M.Autocomplete.init(elem, options);
