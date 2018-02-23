@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73b28db0-e4c5-4a8c-8811-403e97d9f26e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/appshell.html" afterPath="$PROJECT_DIR$/app/appshell.html" />
-      <change beforePath="$PROJECT_DIR$/data/courses_search.php" afterPath="$PROJECT_DIR$/data/courses_search.php" />
-      <change beforePath="$PROJECT_DIR$/data/main.php" afterPath="$PROJECT_DIR$/data/main.php" />
-      <change beforePath="$PROJECT_DIR$/data/preparation.php" afterPath="$PROJECT_DIR$/data/preparation.php" />
-      <change beforePath="$PROJECT_DIR$/js/jw.js" afterPath="$PROJECT_DIR$/js/jw.js" />
+      <change beforePath="$PROJECT_DIR$/data/faisal/create.php" afterPath="$PROJECT_DIR$/data/faisal/create.php" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,14 +40,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="create.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/faisal/create.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+            <state relative-caret-position="414">
+              <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
               <folding>
-                <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-                <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+                <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+                <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
               </folding>
             </state>
           </provider>
@@ -75,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/data/faisal/insert.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1098">
-              <caret line="61" column="87" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="61" selection-end-column="87" />
+              <caret line="61" column="87" lean-forward="false" selection-start-line="48" selection-start-column="8" selection-end-line="61" selection-end-column="87" />
               <folding>
                 <marker date="1519232448340" expanded="true" signature="2248:2345" ph="SELECT id FR... courses" />
               </folding>
@@ -93,7 +88,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/main.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
@@ -139,7 +134,7 @@
         <entry file="file://$PROJECT_DIR$/data/courses_search.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+              <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
               <folding>
                 <marker date="1519325516500" expanded="true" signature="519:540" ph="SELECT * FRO... courses" />
               </folding>
@@ -156,13 +151,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/js/jw.js" />
-        <option value="$PROJECT_DIR$/data/faisal/create.php" />
         <option value="$PROJECT_DIR$/data/faisal/insert.php" />
         <option value="$PROJECT_DIR$/data/courses.php" />
         <option value="$PROJECT_DIR$/data/faisal/connect.php" />
         <option value="$PROJECT_DIR$/data/preparation.php" />
         <option value="$PROJECT_DIR$/data/courses_search.php" />
         <option value="$PROJECT_DIR$/data/main.php" />
+        <option value="$PROJECT_DIR$/data/faisal/create.php" />
       </list>
     </option>
   </component>
@@ -262,12 +257,12 @@
       <workItem from="1519116268977" duration="228000" />
       <workItem from="1519141195778" duration="24932000" />
       <workItem from="1519293057755" duration="224000" />
-      <workItem from="1519318328650" duration="5330000" />
+      <workItem from="1519318328650" duration="6081000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42030000" />
+    <option name="totallyTimeSpent" value="42781000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="404" y="0" width="1036" height="900" extended-state="6" />
@@ -329,8 +324,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
           </folding>
         </state>
       </provider>
@@ -370,8 +365,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
           </folding>
         </state>
       </provider>
@@ -401,8 +396,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
           </folding>
         </state>
       </provider>
@@ -442,8 +437,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
           </folding>
         </state>
       </provider>
@@ -480,8 +475,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
           </folding>
         </state>
       </provider>
@@ -511,8 +506,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
           </folding>
         </state>
       </provider>
@@ -552,8 +547,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
           </folding>
         </state>
       </provider>
@@ -590,8 +585,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
           </folding>
         </state>
       </provider>
@@ -631,8 +626,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
           </folding>
         </state>
       </provider>
@@ -662,8 +657,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
           </folding>
         </state>
       </provider>
@@ -703,8 +698,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
           </folding>
         </state>
       </provider>
@@ -739,17 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/faisal/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-          <folding>
-            <marker date="1518020190790" expanded="true" signature="244:625" ph="CREATE TABLE... course" />
-            <marker date="1518020190790" expanded="true" signature="666:929" ph="CREATE TABLE... basic" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/faisal/saru.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -761,7 +745,7 @@
     <entry file="file://$PROJECT_DIR$/data/faisal/insert.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1098">
-          <caret line="61" column="87" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="61" selection-end-column="87" />
+          <caret line="61" column="87" lean-forward="false" selection-start-line="48" selection-start-column="8" selection-end-line="61" selection-end-column="87" />
           <folding>
             <marker date="1519232448340" expanded="true" signature="2248:2345" ph="SELECT id FR... courses" />
           </folding>
@@ -810,7 +794,7 @@
     <entry file="file://$PROJECT_DIR$/data/courses_search.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
           <folding>
             <marker date="1519325516500" expanded="true" signature="519:540" ph="SELECT * FRO... courses" />
           </folding>
@@ -822,6 +806,17 @@
         <state relative-caret-position="200">
           <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/faisal/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding>
+            <marker date="1519363132630" expanded="true" signature="244:639" ph="CREATE TABLE... course" />
+            <marker date="1519363132630" expanded="true" signature="736:937" ph="CREATE TABLE... basic" />
+          </folding>
         </state>
       </provider>
     </entry>
