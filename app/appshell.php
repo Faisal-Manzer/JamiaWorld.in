@@ -133,11 +133,11 @@ $render.='
               <div class="col l4 offset-l2 s12">
                 <h5 class="'.$host.'/contact">Contact US</h5>
                 <ul>
-                  <li><a class="" href="intent://send/+917836950052#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"><i class="fab fa-whatsapp"></i>&nbsp;Chat with us on Whatsapp. Clear all doubt about Jamia. +91 7836950052</a></li>
-                  <li><a class="" href="tel: +917836950052"><i class="fa fa-phone"></i>&nbsp; You Can Directly Call US. We will Feel glad to help. +91 7836950052</a></li>
-                  <li><a class="" href="tel: +917836950052"><i class="fa fa-envelope"></i>&nbsp;Mail us like convention</a></li>
-                  <li><a class="" href="https://www.facebook.com/jamiaworld.in/"><i class="fab fa-facebook-f"></i>&nbsp; Follow us on Facebook</a></li>
-                  <li><a class="" href="https://www.instagram.com/jamiaworld.in/"><i class="fab fa-instagram"></i>&nbsp; Follow us on Instagram</a></li>
+                  <li><a class="" href="intent://send/+917836950052#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" target="_blank"><i class="fab fa-whatsapp"></i>&nbsp;Chat with us on Whatsapp. Clear all doubt about Jamia. +91 7836950052</a></li>
+                  <li><a class="" href="tel: +917836950052" target="_blank"><i class="fa fa-phone"></i>&nbsp; You Can Directly Call US. We will Feel glad to help. +91 7836950052</a></li>
+                  <li><a class="" href="tel: +917836950052" target="_blank"><i class="fa fa-envelope"></i>&nbsp;Mail us like convention</a></li>
+                  <li><a class="" href="https://www.facebook.com/jamiaworld.in/" target="_blank"><i class="fab fa-facebook-f"></i>&nbsp; Follow us on Facebook</a></li>
+                  <li><a class="" href="https://www.instagram.com/jamiaworld.in/" target="_blank"><i class="fab fa-instagram"></i>&nbsp; Follow us on Instagram</a></li>
                 </ul>
               </div>
             </div>
@@ -150,7 +150,7 @@ $render.='
           </div>
         </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
-  <script type="text/javascript" src="'.$host.'/js/jw.min.js" async></script>
+  <script type="text/javascript" src="'.$host.'/js/jw.js" async></script>
   <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
 
 </body>

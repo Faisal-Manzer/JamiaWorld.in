@@ -30,12 +30,17 @@ String.prototype.load = function(s, f) {
   x.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       //console.log("oooo"+s);
+       // console.log("Loaded");
       console.log(x.responseText);
       var o = JSON.parse(x.responseText);
       f(o);
     }
   }
 };
+window.addEventListener('popstate', function(e) {
+    //console.log(e);
+    app.loadData();
+});
 var root = "http://" + location.host;
 var app = {
   isLoading: true,
@@ -69,22 +74,28 @@ var app = {
   }
 };
 app.init = function() {
-  app.ini = M.Sidenav.init(app.sideNav.obj, app.sideNav.option);
-  app.ini = M.FloatingActionButton.init(app.fab.obj, app.fab.option);
+  app.sideNav.ini = M.Sidenav.init(app.sideNav.obj, app.sideNav.option);
+  app.fab.ini = M.FloatingActionButton.init(app.fab.obj, app.fab.option);
   setTimeout(function() {
     M.toast(app.askLogin);
   }, 3000);
-  //app.prevent();
+  app.prevent(document);
 };
-app.prevent = function() {
-  var links = document.getElementsByTagName("a");
+app.prevent = function(elem) {
+
+  var links = elem.getElementsByTagName("a");
   var curr = location.href;
   for (var i = 0; i < links.length; i++) {
     links[i].addEventListener("click", function(e) {
-      e.preventDefault();
-      if ((this.href !== curr + "#") && (this !== curr + "#!") && (this !== curr + undefined) && (this.href !== curr) && (this.href !== "")) {
-        //history.pushState("THEONE", "THETWO", this.href);
-        app.navigate(this.href);
+        //e.preventDefault();
+        console.log(this.href);
+      var n = this.href.search(/(#!)|(#)|(undefined)|((tel:).+|(mailto:).+|(intent:).+)/);
+      var m =this.href.search(/(http:\/\/)((www\.jamiaworld\.in)|(localhost:8888)).+/);
+      if ((n==-1)&&(this.href!="")&&(m!=-1)) {
+          e.preventDefault();
+          console.log("Prevented");
+          app.sideNav.ini.close();
+          app.navigate(this.href);
       }
     });
   }
@@ -92,10 +103,10 @@ app.prevent = function() {
 app.add = function(obj) {
   for (var i = 0; i < obj.length; i++) {
     check(obj.parent, function() {
-      console.log(obj.parent);
+      //console.log(obj.parent);
       check(obj[i].parent, false, function() {
         obj[i].parent = obj.parent;
-        console.log(obj[i].parent);
+        //console.log(obj[i].parent);
       });
     });
     app.add(obj[i]);
@@ -176,7 +187,7 @@ function def(d, n, p) {
   check(n, function() {
     tr = n;
   });
-  console.log(tr);
+  //console.log(tr);
   return tr;
 }
 app.createCard = function(o) {
@@ -407,10 +418,10 @@ app.createCollapsible = function(o) {
     //console.log(li);
     c.append(li);
   }
-  console.log(o.parent);
+  //console.log(o.parent);
   var parent = $(def("", o.parent, app.page + " "));
   parent.append(c);
-  console.log(c);
+  //console.log(c);
   var instance = M.Collapsible.init($("#" + id), o.options);
   for (var i = 0; i < child.length; i++) {
     app.add(child[i]);
@@ -496,11 +507,14 @@ app.createTable = function(o) {
     c.append(body);
   });
   var parent = $(def("", o.parent, app.page + " "));
-  console.log(o.parent);
+  //console.log(o.parent);
   parent.append(c);
 }
 app.navigate = function(u) {
-  history.pushState("THEONE", "THETWO", u);
+    console.log(location.href);
+    var loc = location.href;
+  history.pushState(loc, "THETWO", u);
+  app.loadData();
 }
 app.searchInit = function() {
   var turl = root + "/data/courses_search.php";
@@ -513,17 +527,24 @@ app.searchInit = function() {
         console.log(elem.value);
         var val = elem.value;
         var newUrl = app.search[val];
-        window.location = "http://"+location.host+newUrl;
+        //window.location = "http://"+location.host+newUrl;
+          app.navigate("http://"+location.host+newUrl);
       }
     };
     var instance = M.Autocomplete.init(elem, options);
   });
 }
 app.loadData = function() {
+    //console.log("Load Called");
   var tpath = root + "/data/main.php";
+  $(".page-role").innerHTML = "";
+  $(".nc").innerHTML = "";
   tpath.load("path=" + location.pathname, function(e) {
     app.add(e);
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0;
     $(".loader").add("hide");
+    app.prevent($(".page-role"));
   });
 }
 window.onload = function() {
