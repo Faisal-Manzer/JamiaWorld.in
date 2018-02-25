@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73b28db0-e4c5-4a8c-8811-403e97d9f26e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/jw.min.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Archive.zip" afterPath="$PROJECT_DIR$/Archive.zip" />
-      <change beforePath="$PROJECT_DIR$/app/appshell.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/data/courses.php" afterPath="$PROJECT_DIR$/data/courses.php" />
-      <change beforePath="$PROJECT_DIR$/data/courses_search.php" afterPath="$PROJECT_DIR$/data/courses_search.php" />
-      <change beforePath="$PROJECT_DIR$/data/faisal/create.php" afterPath="$PROJECT_DIR$/data/faisal/create.php" />
-      <change beforePath="$PROJECT_DIR$/data/faisal/insert.html" afterPath="$PROJECT_DIR$/data/faisal/insert.html" />
-      <change beforePath="$PROJECT_DIR$/data/faisal/insert.php" afterPath="$PROJECT_DIR$/data/faisal/insert.php" />
-      <change beforePath="$PROJECT_DIR$/data/faisal/saru.php" afterPath="$PROJECT_DIR$/data/faisal/saru.php" />
-      <change beforePath="$PROJECT_DIR$/data/main.php" afterPath="$PROJECT_DIR$/data/main.php" />
-      <change beforePath="$PROJECT_DIR$/data/preparation.php" afterPath="$PROJECT_DIR$/data/preparation.php" />
-      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change beforePath="$PROJECT_DIR$/js/jw.js" afterPath="$PROJECT_DIR$/js/jw.js" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -59,7 +46,7 @@
       <file leaf-file-name="insert.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/faisal/insert.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1908">
+            <state relative-caret-position="1890">
               <caret line="105" column="37" lean-forward="false" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="37" />
               <folding>
                 <marker date="1519502508620" expanded="true" signature="2459:2556" ph="SELECT id FR... courses" />
@@ -78,7 +65,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="appshell.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="appshell.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/appshell.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
@@ -141,17 +128,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="saru.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/faisal/saru.php">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-              <folding>
-                <marker date="1519484079860" expanded="true" signature="590:618" ph="SELECT * FRO... seo" />
-                <marker date="1519484079860" expanded="true" signature="590:626" ph="SELECT * FRO... seo" />
-                <marker date="1519484079860" expanded="true" signature="590:628" ph="SELECT * FRO... seo" />
-                <marker date="1519484079860" expanded="true" signature="590:629" ph="SELECT * FRO... seo" />
-              </folding>
+            <state relative-caret-position="18">
+              <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,7 +142,7 @@
         <entry file="file://$PROJECT_DIR$/data/faisal/insert.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+              <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -202,7 +184,7 @@
       <file leaf-file-name="preparation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/preparation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
+            <state relative-caret-position="3132">
               <caret line="174" column="39" lean-forward="false" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
               <folding>
                 <marker date="1519495351300" expanded="true" signature="462:496" ph="SELECT * FRO... courses" />
@@ -245,6 +227,7 @@
         <option value="$PROJECT_DIR$/404.php" />
         <option value="$PROJECT_DIR$/data/faisal/insert.php" />
         <option value="$PROJECT_DIR$/app/appshell.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -274,7 +257,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -319,6 +301,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -369,11 +352,12 @@
       <workItem from="1519411298959" duration="169000" />
       <workItem from="1519413491220" duration="25623000" />
       <workItem from="1519499260956" duration="2011000" />
+      <workItem from="1519539257190" duration="22000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74311000" />
+    <option name="totallyTimeSpent" value="74333000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -410,13 +394,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/jw.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/jw.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -701,10 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
           <caret line="43" column="25" lean-forward="false" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-          <folding>
-            <marker date="1519285089790" expanded="true" signature="1648:1679" ph="INSERT INTO ${$table}... " />
-            <marker date="1519285089790" expanded="true" signature="2036:2089" ph="INSERT INTO ${$table}... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -725,9 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="574">
           <caret line="29" column="50" lean-forward="false" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-          <folding>
-            <marker date="1519414642230" expanded="true" signature="1097:1124" ph="SELECT * FRO... courses" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -745,7 +715,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/preparation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
+        <state relative-caret-position="3132">
           <caret line="174" column="39" lean-forward="false" selection-start-line="174" selection-start-column="39" selection-end-line="174" selection-end-column="39" />
           <folding>
             <marker date="1519495351300" expanded="true" signature="462:496" ph="SELECT * FRO... courses" />
@@ -806,7 +776,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/faisal/insert.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1908">
+        <state relative-caret-position="1890">
           <caret line="105" column="37" lean-forward="false" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="37" />
           <folding>
             <marker date="1519502508620" expanded="true" signature="2459:2556" ph="SELECT id FR... courses" />
@@ -817,7 +787,7 @@
     <entry file="file://$PROJECT_DIR$/data/faisal/insert.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -880,6 +850,14 @@
             <marker date="1519503868170" expanded="true" signature="7577:7731" ph="..." />
             <marker date="1519503868170" expanded="true" signature="7593:7599" ph="©" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
