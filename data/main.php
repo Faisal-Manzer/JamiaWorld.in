@@ -1,10 +1,4 @@
 <?php
-include 'faisal/saru.php';
-function index()
-{
-  $tr = array('type'=>'card','eclass'=>'red darken-4 jw-inverted-text --jw-basic','title'=>'Index Page Goes Here','cont'=>'Work to be done here :(');
-  echo json_encode($tr);
-}
 if(isset($_POST['path'])){
   $path = $_POST['path'];
   preg_match_all('/[a-z\-A-Z.]+/', $path, $matches);
@@ -20,12 +14,16 @@ if(isset($_POST['path'])){
       case 'news':
       case 'contact':
       case "about":
+        case "clubs":
+          case "allumi":
         $tr = array('type'=>'card','eclass'=>'red darken-4 jw-inverted-text --jw-basic','title'=>'Sorry :(','cont'=>'We are working in this area');
         echo json_encode($tr);
         break;
       case 'index.php':
       case 'index.html':
-        index();
+        include "index-page.php";
+        $index = new indexpage($path);
+        echo $index->json;
         break;
       default:
         $tr = array('type'=>'card','eclass'=>'red darken-4 jw-inverted-text --jw-basic','title'=>'4o4 Not Found','cont'=>'The Requested URl Not found :(');
@@ -35,7 +33,9 @@ if(isset($_POST['path'])){
     }
   }
   else{
-    index();
+      include "index-page.php";
+      $index = new indexpage($path);
+      echo $index->json;
   }
 }
  ?>

@@ -8,16 +8,16 @@ if(1){
         function __construct()
         {
             parent::__construct("jw");
-            $this->select("SELECT * FROM courses");
+            $this->select("SELECT * FROM seo WHERE section='preparation'");
             if(!empty($this->result_arr)){
-                $courses = array();
+                $courses = array(
+                    "data" => array(),
+                "url" => array(),
+                );
                 for($i=0; $i<count($this->result_arr); $i++){
-                    $cou = $this->result_arr[$i];
-                    $funa = $cou["sup_branch"]." ".$cou["name"];
-                    if($cou["sup_branch"]===$cou["name"])
-                        $funa = $cou["name"];
-                    $courses[$funa] = null;
-
+                    $cou = $this->result_arr[$i]["title"];
+                    $courses["data"][$cou] = null;
+                    $courses["url"][$cou] = $this->result_arr[$i]["id"];
                 }
                 echo json_encode($courses);
             }

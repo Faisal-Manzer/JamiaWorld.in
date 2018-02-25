@@ -50,6 +50,7 @@ var app = {
   tableCount: 0,
   main: $("main .page-role"),
   page: ".page-role",
+  search: {},
   sideNav: {
     obj: $("#menu"),
     option: {
@@ -169,12 +170,13 @@ function check(v, e, f) {
 
 function def(d, n, p) {
   var tr = d;
-  check(n, function() {
-    tr = n;
-  });
   check(p, function() {
     tr = p + "" + tr;
   });
+  check(n, function() {
+    tr = n;
+  });
+  console.log(tr);
   return tr;
 }
 app.createCard = function(o) {
@@ -504,12 +506,14 @@ app.searchInit = function() {
   var turl = root + "/data/courses_search.php";
   turl.load("", function(e) {
     var elem = document.querySelector('#mainSearch');
+    app.search = e.url;
     var options = {
-      data: e,
+      data: e.data,
       onAutocomplete: function() {
         console.log(elem.value);
-        var newUrl = elem.value.replace(/\s/g, "/");
-        window.location = "http://"+location.host+"/preparation/"+newUrl;
+        var val = elem.value;
+        var newUrl = app.search[val];
+        window.location = "http://"+location.host+newUrl;
       }
     };
     var instance = M.Autocomplete.init(elem, options);
@@ -526,116 +530,4 @@ window.onload = function() {
   app.init();
   app.searchInit();
   app.loadData();
-  $(".loader").add("hide");
-
-
-  var s = [{
-      type: 'para',
-      title: '<h4>B.Sc. Maths</h4>',
-      cont: ''
-    },
-    {
-      type: 'collapsible',
-      options: {
-        accordion: false
-      },
-      items: [{
-          title: 'Basic Info',
-          cont: '',
-
-          saru: [{
-              type: 'table',
-              items: [
-                [
-                  '<b>Duration</b>',
-                  '3 years'
-                ],
-                [
-                  '<b>Total Seat</b>',
-                  '50'
-                ],
-                [
-                  '<b>Resevation</b>',
-                  'Muslim (50) <br> OBC Muslim (30) <br> Muslim Women (34)'
-                ]
-              ]
-            },
-            {
-              type: 'para',
-              title: '',
-              cont: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, magnam.'
-            },
-            {
-              type: 'para',
-              title: 'Address',
-              cont: '<div id="add-maps-try" style="height: 200px; width: 100%; position: relative; overflow: hidden;"></div> <script>function initMap(){var markIt={lat: 28.560750, lng: 77.278400}; var map=new google.maps.Map(document.getElementById("add-maps-try"),{zoom: 17, center: markIt}); var marker=new google.maps.Marker({position: markIt, map: map});}</script> <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAa9zBvf8Afp-ObmQ9Yz1WylnDqrGXhbRo&callback=initMap"></script> </div>'
-            }
-          ]
-        },
-        {
-          title: 'Examination',
-          cont: '',
-          saru: [{
-              type: 'table',
-              items: [
-                [
-                  '<b>Exam:</b>',
-                  'Trough JEE Mains'
-                ],
-                [
-                  '<b>Opening Date</b>',
-                  '29 Dec 2017'
-                ],
-                [
-                  '<b>Closing Date</b>',
-                  '3 March 2018'
-                ],
-                [
-                  '<b>Form Date</b>',
-                  '&#x20b9; 300'
-                ],
-                [
-                  '<b>Examination Pattern</b>',
-                  '<b>Objective</b><br>100 Marks<br>100 Questions',
-                ],
-                [
-                  '<b>Level</b>',
-                  'Boad Level',
-                ]
-              ]
-            },
-            {
-              type: 'para',
-              title: '',
-              cont: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, magnam.'
-            }
-          ]
-        },
-        {
-          title: 'Study Material',
-          cont: '',
-          saru: [{
-            type: 'table',
-            items: [
-              [
-                '<b>Sllabus</b>',
-                '<a href="#">Download</a>'
-              ],
-              [
-                '<b>Previous Years</b>',
-                '<a href="#">Download</a>'
-              ],
-              [
-                '<b>Sample Paper</b>',
-                '<a href="#">Download</a>'
-              ]
-            ]
-          }]
-        }
-      ]
-    }
-  ];
-  //app.add(s);
-
-
 }

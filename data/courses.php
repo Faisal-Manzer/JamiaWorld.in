@@ -27,7 +27,7 @@ class course extends sql
 
     );
     */
-    $this->select("SELECT * FROM courses WHERE ")
+    $this->select("SELECT * FROM courses WHERE ");
       $this->arr = array(
           array(
               'type' => 'para',

@@ -4,12 +4,15 @@ class course extends sql
 {
     private $arr;
     public $json;
+    private $path;
     private $basicArr = array();
     private $courseArr = array();
     private $examArr = array();
+    private $cc = "";
 
     function __construct($path)
     {
+        $this->path = $path;
         parent::__construct("jw");
         preg_match_all('/[a-z\-A-Z.]+/', $path, $r_url);
         if (count($r_url[0]) > 2) {
@@ -17,24 +20,34 @@ class course extends sql
             if(!empty($this->result_arr))
                 $this->setAll(end($this->result_arr));
             else
-                $this->cnf();
+                $this->cnf("1");
         }
-        else if(count($r_url)==2) {
+        if(count($r_url[0])==2) {
             $this->select("SELECT * FROM courses WHERE name='" . $r_url[0][1] . "' AND sup_branch='" . $r_url[0][1] . "'");
             if(!empty($this->result_arr)){
                 $this->courseArr = end($this->result_arr);
                 $this->courseArr["name"] = "";
-                $this->setAll($this->result_arr);
+                $this->setAll(end($this->result_arr));
             }
             else{
-                $this->select("SELECT * FROM courses WHERE sup_branch='".$r_url[0][1]);
+                $this->select("SELECT * FROM courses WHERE sup_branch='".$r_url[0][1]."' ORDER BY name ASC");
                 if(!empty($this->result_arr)){
-                    //-------
-                    //---To Hamndel collections
-                    //-------
+                    $this->cnf("2");
+                    $this->arr = array(
+                        "type" => "collection",
+                        "items" => array()
+                    );
+                    for($i=0; $i<count($this->result_arr); $i++){
+                        $res = $this->result_arr[$i];
+                        $tarr = array(
+                            "title" => "<a href='http://".$_SERVER["HTTP_HOST"]."/preparation/".$res["sup_branch"]."/".$res["name"]."'>".$this->result_arr[$i]["name"]."</a>",
+                            "cont" => ""
+                        );
+                        array_push($this->arr["items"], $tarr);
+                    }
                 }
                 else{
-                    $this->cnf();
+                    $this->cnf("3");
                 }
             }
         }
@@ -52,10 +65,13 @@ class course extends sql
         $id = $courseArr["id"];
         $basicSql = "SELECT * FROM basic WHERE id='".$id."'";
         $examSQl = "SELECT * FROM exam WHERE id='".$id."'";
+        $seoSql = "SELECT * FROM seo WHERE id='".$this->path."'";
         $this->select($basicSql);
         $basicArr = end($this->result_arr);
         $this->select($examSQl);
         $examArr = end($this->result_arr);
+        $this->select($seoSql);
+        $seoArr = end($this->result_arr);
         //$this->setAll($courseArr,$basicArr,$examArr);
         $this->renameThis($courseArr["name"]);
         $this->renameThis($courseArr["sup_branch"]).".";
@@ -74,7 +90,7 @@ class course extends sql
         $this->arr = array(
             array(
                 'type' => 'para',
-                'title' => '<h4>'.$courseArr["sup_branch"]." ".$courseArr["name"].'</h4>',
+                'title' => '<h4>'.$seoArr["title"].'</h4>',
                 'cont' => ''
             ),
             array(
@@ -188,10 +204,10 @@ class course extends sql
                 );
 
             }
-        private function cnf(){
+        private function cnf($c){
             $this->arr = array(
-                "type" => "para",
-                "title" => "Sorry :(",
+                "type" => "card",
+                "title" => "Sorry :( ".$c,
                 "cont" => "The course u requested is currently not available, but u can contact our team for assistance."
             );
         }
