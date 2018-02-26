@@ -81,7 +81,7 @@ $render.='
           </div>
       </div>
     </div>
-    <div class="fixed-action-btn" id="fab">
+    <div class="fixed-action-btn hide" id="fab">
       <a class="btn-floating btn-large jw-inverted jw-inverted-hover" id="fab-btn">
             <i class="large material-icons fa fa-comment"></i>
           </a>
@@ -135,9 +135,9 @@ $render.='
               <div class="col l4 offset-l2 s12">
                 <h5 class="'.$host.'/contact">Contact US</h5>
                 <ul>
-                  <li><a class="" href="intent://send/+917836950052#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"><i class="fab fa-whatsapp"></i>&nbsp;Chat with us on Whatsapp. Clear all doubt about Jamia. +91 7836950052</a></li>
-                  <li><a class="" href="tel: +917836950052"><i class="fa fa-phone"></i>&nbsp; You Can Directly Call US. We will Feel glad to help. +91 7836950052</a></li>
-                  <li><a class="" href="tel: +917836950052" target="_blank"><i class="fa fa-envelope"></i>&nbsp;Mail us like convention</a></li>
+                  <li><a class="hide" href="intent://send/+917836950052#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"><i class="fab fa-whatsapp"></i>&nbsp;Chat with us on Whatsapp. Clear all doubt about Jamia. +91 7836950052</a></li>
+                  <li><a class="hide" href="tel: +917836950052"><i class="fa fa-phone"></i>&nbsp; You Can Directly Call US. We will Feel glad to help. +91 7836950052</a></li>
+                  <li><a class="hide" href="tel: +917836950052" target="_blank"><i class="fa fa-envelope"></i>&nbsp;Mail us like convention</a></li>
                   <li><a class="" href="https://www.facebook.com/jamiaworld.in/" target="_blank"><i class="fab fa-facebook-f"></i>&nbsp; Follow us on Facebook</a></li>
                   <li><a class="" href="https://www.instagram.com/jamiaworld.in/" target="_blank"><i class="fab fa-instagram"></i>&nbsp; Follow us on Instagram</a></li>
                 </ul>
