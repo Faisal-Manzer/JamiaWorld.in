@@ -44,7 +44,7 @@ $render.='
       </li>
       <li><a id="loginGoogle"><i class="material-icons fab fa-google"></i>SignIn With Google</a</li>
       <li><a id="signOut" class="hide"><i class="material-icons fa fa-sign-out-alt"></i>SignOut</a></li>
-      <li><a href="#!" id="loginFacebook"><i class="material-icons fab fa-facebook"></i>LogIN With Facebook</a></li>
+      <li><a href="#!" id="loginFacebook" class="hide"><i class="material-icons fab fa-facebook"></i>LogIN With Facebook</a></li>
       <li>
         <div class="divider"></div>
       </li>
@@ -60,7 +60,7 @@ $render.='
   </nav>
   <!--
   -->
-  <header class="jw-brand-bar col ">
+  <header class="jw-brand-bar col s6">
     <div class="row valin-wrapper">
       <div class="col s1 m1 l1">
         <div class="center">

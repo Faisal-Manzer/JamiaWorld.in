@@ -612,7 +612,7 @@ var signInFaisal = function () {
                     app.signOut();
                 });
             }, function (error) {
-                alert(JSON.stringify(error, undefined, 2));
+                //alert(JSON.stringify(error, undefined, 2));
             });
     });
 }
