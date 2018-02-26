@@ -31,7 +31,7 @@ String.prototype.load = function(s, f) {
     if (this.readyState == 4 && this.status == 200) {
       //console.log("oooo"+s);
        // console.log("Loaded");
-      console.log(x.responseText);
+      //console.log(x.responseText);
       var o = JSON.parse(x.responseText);
       f(o);
     }
@@ -71,14 +71,24 @@ var app = {
   askLogin: {
     html: $(".components #askLogin").cloneNode(true),
     displayLength: 3000
+  },
+  gsin: null,
+  user:{
+      isSigned: false,
+      name: "LogIn",
+      email: "To get our free services",
+      dp: root+"/images/user.png"
+  },
+  userD:{
+      isSigned: false,
+      name: "LogIn",
+      email: "To get our free services",
+      dp: root+"/images/user.png"
   }
-};
+}
 app.init = function() {
   app.sideNav.ini = M.Sidenav.init(app.sideNav.obj, app.sideNav.option);
   app.fab.ini = M.FloatingActionButton.init(app.fab.obj, app.fab.option);
-  setTimeout(function() {
-    M.toast(app.askLogin);
-  }, 3000);
   app.prevent(document);
 };
 app.prevent = function(elem) {
@@ -88,10 +98,10 @@ app.prevent = function(elem) {
   for (var i = 0; i < links.length; i++) {
     links[i].addEventListener("click", function(e) {
         //e.preventDefault();
-        console.log(this.href);
+        //console.log(this.href);
       var n = this.href.search(/(#!)|(#)|(undefined)|((tel:).+|(mailto:).+|(intent:).+)/);
       var m =this.href.search(/(http:\/\/)((www\.jamiaworld\.in)|(localhost:8888)).+/);
-      if ((n==-1)&&(this.href!="")&&(m!=-1)) {
+      if ((n==-1)&&(this.href!=="")&&(m!=-1)) {
           e.preventDefault();
           console.log("Prevented");
           app.sideNav.ini.close();
@@ -510,8 +520,16 @@ app.createTable = function(o) {
   //console.log(o.parent);
   parent.append(c);
 }
+app.createScript = function (o) {
+    var c = create("script","");
+    c.type = "text/javascript";
+    c.onload = function () {
+        saru();
+    };
+    c.src = o.url;
+}
 app.navigate = function(u) {
-    console.log(location.href);
+    //console.log(location.href);
     var loc = location.href;
   history.pushState(loc, "THETWO", u);
   app.loadData();
@@ -546,6 +564,69 @@ app.loadData = function() {
     $(".loader").add("hide");
     app.prevent($(".page-role"));
   });
+}
+app.showUser = function () {
+    $("#userName").innerText = app.user.name;
+    $("#userEmail").innerText = app.user.email;
+    $("#userDp").src = app.user.dp;
+}
+var signInFaisal = function () {
+    gapi.load("auth2", function() {
+        app.gsin = gapi.auth2.init({
+            client_id: "782076451193-8ves6eoa7m26bacrr6l7r2samdscu478.apps.googleusercontent.com"
+        });
+        app.gsin.then(function () {
+            app.user.isSigned = app.gsin.isSignedIn.get();
+            var issi = app.gsin.isSignedIn.get();
+            if (issi) {
+                var userData = app.gsin.currentUser.get();
+                var user = userData.getBasicProfile();
+                //console.log(user);
+                app.user.name = user.ig;
+                app.user.email = user.U3;
+                app.user.dp = user.Paa;
+                app.showUser();
+                $("#signOut").add("--hide");
+                $("#loginGoogle").add("hide");
+                $("#signOut").addEventListener("click",function () {
+                    app.signOut();
+                });
+            } else {
+                setTimeout(function () {
+                    M.toast(app.askLogin);
+                }, 3000);
+            }
+        }, function (reason) {
+        });
+        app.gsin.attachClickHandler(document.getElementById("loginGoogle"), {},
+            function (userr) {
+                var user = userr.getBasicProfile();
+                app.user.isSigned = true;
+                app.user.name = user.getName();
+                app.user.email = user.getEmail();
+                app.user.dp = user.getImageUrl();
+                app.showUser();
+                $("#signOut").add("--hide");
+                $("#loginGoogle").add("hide");
+                $("#signOut").addEventListener("click",function () {
+                    app.signOut();
+                });
+            }, function (error) {
+                alert(JSON.stringify(error, undefined, 2));
+            });
+    });
+}
+app.signOut = function () {
+    //alert("hi");
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        app.user = app.userD;
+        app.showUser();
+        M.toast({html:"Signed Out Successful"});
+        $("#signOut").add("hide");
+        $("#loginGoogle").add("--hide");
+        app.sideNav.ini.close();
+    });
 }
 window.onload = function() {
   app.init();

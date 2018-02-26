@@ -27,6 +27,7 @@ $render.='
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="'.$host.'/images/fav/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <meta name="google-signin-client_id" content="782076451193-8ves6eoa7m26bacrr6l7r2samdscu478.apps.googleusercontent.com">
 </head>
 
 <body class="jw-basic">
@@ -41,7 +42,8 @@ $render.='
           <a href="#!email"><span class="white-text email" id="userEmail">To Get Our Free Service</span></a>
         </div>
       </li>
-      <li><a href="#!" id="loginGoogle"><i class="material-icons fab fa-google"></i>LogIN With Google</a></li>
+      <li><a id="loginGoogle"><i class="material-icons fab fa-google"></i>SignIn With Google</a</li>
+      <li><a id="signOut" class="hide"><i class="material-icons fa fa-sign-out-alt"></i>SignOut</a></li>
       <li><a href="#!" id="loginFacebook"><i class="material-icons fab fa-facebook"></i>LogIN With Facebook</a></li>
       <li>
         <div class="divider"></div>
@@ -93,7 +95,7 @@ $render.='
   <!--
   -->
   <main class="main" id="main">
-    <div class="center loader">
+    <div class="center loader jw-basic">
       <div class="preloader-wrapper big active">
         <div class="spinner-layer spinner-green-only">
           <div class="circle-clipper left">
@@ -133,8 +135,8 @@ $render.='
               <div class="col l4 offset-l2 s12">
                 <h5 class="'.$host.'/contact">Contact US</h5>
                 <ul>
-                  <li><a class="" href="intent://send/+917836950052#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" target="_blank"><i class="fab fa-whatsapp"></i>&nbsp;Chat with us on Whatsapp. Clear all doubt about Jamia. +91 7836950052</a></li>
-                  <li><a class="" href="tel: +917836950052" target="_blank"><i class="fa fa-phone"></i>&nbsp; You Can Directly Call US. We will Feel glad to help. +91 7836950052</a></li>
+                  <li><a class="" href="intent://send/+917836950052#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"><i class="fab fa-whatsapp"></i>&nbsp;Chat with us on Whatsapp. Clear all doubt about Jamia. +91 7836950052</a></li>
+                  <li><a class="" href="tel: +917836950052"><i class="fa fa-phone"></i>&nbsp; You Can Directly Call US. We will Feel glad to help. +91 7836950052</a></li>
                   <li><a class="" href="tel: +917836950052" target="_blank"><i class="fa fa-envelope"></i>&nbsp;Mail us like convention</a></li>
                   <li><a class="" href="https://www.facebook.com/jamiaworld.in/" target="_blank"><i class="fab fa-facebook-f"></i>&nbsp; Follow us on Facebook</a></li>
                   <li><a class="" href="https://www.instagram.com/jamiaworld.in/" target="_blank"><i class="fab fa-instagram"></i>&nbsp; Follow us on Instagram</a></li>
@@ -144,7 +146,7 @@ $render.='
           </div>
           <div class="footer-copyright black">
             <div class="container white-text center">
-              &copy; 2017-18 Aria16
+              &copy; 2017-18 JamiaWorld
             <a class="grey-text text-lighten-2 right" href="http://faisal-manzer.in">Know More</a>
             </div>
           </div>
@@ -152,9 +154,9 @@ $render.='
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
   <script type="text/javascript" src="'.$host.'/js/jw.js" async></script>
   <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
-
+  <script src="https://apis.google.com/js/platform.js?onload=signInFaisal" async defer></script>
 </body>
 
 </html>';
-echo mini($render);
+echo $render;
 ?>
