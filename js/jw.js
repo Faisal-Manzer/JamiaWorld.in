@@ -565,10 +565,10 @@ app.loadData = function() {
     app.prevent($(".page-role"));
   });
 }
-app.showUser = function () {
-    $("#userName").innerText = app.user.name;
-    $("#userEmail").innerText = app.user.email;
-    $("#userDp").src = app.user.dp;
+app.showUser = function (user) {
+    $("#userName").innerText = user.name;
+    $("#userEmail").innerText = user.email;
+    $("#userDp").src = user.dp;
 }
 var signInFaisal = function () {
     gapi.load("auth2", function() {
@@ -585,12 +585,9 @@ var signInFaisal = function () {
                 app.user.name = user.ig;
                 app.user.email = user.U3;
                 app.user.dp = user.Paa;
-                app.showUser();
+                app.showUser(app.user);
                 $("#signOut").add("--hide");
                 $("#loginGoogle").add("hide");
-                $("#signOut").addEventListener("click",function () {
-                    app.signOut();
-                });
             } else {
                 setTimeout(function () {
                     M.toast(app.askLogin);
@@ -605,12 +602,9 @@ var signInFaisal = function () {
                 app.user.name = user.getName();
                 app.user.email = user.getEmail();
                 app.user.dp = user.getImageUrl();
-                app.showUser();
+                app.showUser(app.user);
                 $("#signOut").add("--hide");
                 $("#loginGoogle").add("hide");
-                $("#signOut").addEventListener("click",function () {
-                    app.signOut();
-                });
             }, function (error) {
                 //alert(JSON.stringify(error, undefined, 2));
             });
@@ -620,16 +614,24 @@ app.signOut = function () {
     //alert("hi");
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-        app.user = app.userD;
-        app.showUser();
         M.toast({html:"Signed Out Successful"});
         $("#signOut").add("hide");
         $("#loginGoogle").add("--hide");
         app.sideNav.ini.close();
+        app.user.name = app.userD.name;
+        app.user.email = app.userD.email;
+        app.user.dp = app.userD.dp;
+        app.user.isSigned = false;
+        app.showUser(app.userD);
+        console.log(app.userD);
+        console.log(app.user);
     });
 }
 window.onload = function() {
   app.init();
   app.searchInit();
   app.loadData();
+  $("#signOut").addEventListener("click",function () {
+      app.signOut();
+  });
 }
